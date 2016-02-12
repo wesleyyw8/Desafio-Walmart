@@ -1,13 +1,19 @@
 {
-  "name": "treinoweb",
+  "name": "desafiowalmart",
   "version": "1.0.0",
-  "dependencies": {
-    "express": "~4.0.0",
-    "mysql": "*",
-    "express"    : "~4.7.2",
-    "mongoose"   : "~3.6.2",
-    "morgan"     : "~1.2.2",
-    "body-parser": "~1.5.2",
-    "method-override": "~2.1.2"
+  "description": "",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesleyyw8/Desafio-Walmart.git"
+  },
+  "author": "Wesley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wesleyyw8/Desafio-Walmart/issues"
+  },
+  "homepage": "https://github.com/wesleyyw8/Desafio-Walmart#readme",
+  "devDependencies": {
+    "express": "^4.13.4"
   }
 }

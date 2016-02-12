@@ -1,19 +1,29 @@
-var app = angular.module('timezoneFinderApp',['ngRoute']);
+var app = angular.module('desafioWalmartApp',['ngRoute']);
 
-app.config(['$routeProvider', function($routeProvider){
+app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
+	
 	$routeProvider.
 		when('/welcome', {
-			templateUrl: '/views/welcome.html',
+			templateUrl: '../views/welcome.html',
 			controller: 'MainController'
 		}).
 		when('/list', {
-			templateUrl: 'list.html',
+			templateUrl: '../views/list.html',
 			controller: 'MainController'
 		}).
 		otherwise({
 			redirectTo: 'welcome'
 		});
 }]);
+
+app.directive('cityTimezone', function(){
+	return{
+		scope: {
+			city: '=city'
+		},
+		template: 'The timezone in {{city.name}} is {{city.timezone}}.'
+	};
+});
 
 app.controller('MainController', ['$scope', function($scope){
 	$scope.cities = [
@@ -24,4 +34,4 @@ app.controller('MainController', ['$scope', function($scope){
 		{name: 'New York', timezone: 'EST'}
 	];
 	$scope.selectedCity = $scope.cities[0];
-}]);
+}]); 
