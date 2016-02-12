@@ -11,6 +11,9 @@ caso der erro, npm install express -save-dev
 if you receive a message "We have started our server on port 3000!" you did it! just type localhost:3000 on your browser!
 
 
+Im using nodejs as a server because it has javascript syntax so it is easier for me. 
+Bower.json is for UI libraries and framewroks in the other hand package.json is for nodeJS modules.
+Im using angularJS because it is a powerfull framework and I have a lot of experience with it. It wouldnt be necessary to use angularjs to develope this website but it makes things easier if I need to change something in the future! 
 
 
 
