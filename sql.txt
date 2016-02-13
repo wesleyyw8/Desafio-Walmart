@@ -1,12 +1,33 @@
-CREATE TABLE employees (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  name varchar(50),
-  location varchar(50),
-  PRIMARY KEY (id)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
-INSERT INTO employees (id, name, location) VALUES
-(1, 'Jasmine', 'Australia'),
-(2, 'Jay', 'India'),
-(3, 'Jim', 'Germany'),
-(4, 'Lesley', 'Scotland');
+CREATE DATABASE WALMARTDESAFIO;
+USE WALMARTDESAFIO;
+
+CREATE TABLE CLIENTE (
+	id INT NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(255) NOT NULL ,
+	idade INT,
+	sexo VARCHAR(1),
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE ENDERECO(
+	id INT NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(255) NOT NULL,
+	CEP INT,
+	CIDADE VARCHAR(255) NOT NULL,
+	PAIS VARCHAR(255) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE PRODUTO(
+	id INT NOT NULL AUTO_INCREMENT,
+	nome VARCHAR(255) NOT NULL,
+	tipo VARCHAR(255),
+	preco DOUBLE,
+	quantidade INT,
+	PRIMARY KEY (id)
+);
+/*
+CREATE TABLE PEDIDO(
+
+);*/
