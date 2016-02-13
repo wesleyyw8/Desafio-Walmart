@@ -23,9 +23,9 @@ app.controller('EnderecosEntregaController', ['$scope', function($scope){
 	console.log('wesss bbbbbbbb');
 }]); 
 
-app.controller('EnderecosEntregaController', ['$scope', function($scope){
+app.controller('PerfilUsuarioController', ['$scope', function($scope){
 }]); 
 
-app.controller('EnderecosEntregaController', ['$scope', function($scope){
+app.controller('PedidosController', ['$scope', function($scope){
 	
 }]); 
