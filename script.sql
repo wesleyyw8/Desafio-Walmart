@@ -69,3 +69,19 @@ CREATE TABLE PEDIDO(
 	FOREIGN KEY (id_produto) REFERENCES PRODUTO (id),
 	FOREIGN KEY (id_endereco) REFERENCES ENDERECO (id)
 );
+
+INSERT INTO PAIS (nome) VALUES ("Brasil");
+INSERT INTO PAIS (nome) VALUES ("Chile");
+INSERT INTO PAIS (nome) VALUES ("Argentina");
+
+INSERT INTO ESTADO (nome, id_pais) VALUES ("SP", 1);
+INSERT INTO ESTADO (nome, id_pais) VALUES ("RJ", 1);
+INSERT INTO ESTADO (nome, id_pais) VALUES ("MG", 1);
+
+INSERT INTO CIDADE (nome, id_pais, id_estado) VALUES ("Santos", 1, 1);
+INSERT INTO CIDADE (nome, id_pais, id_estado) VALUES ("Petropolis", 1, 2);
+INSERT INTO CIDADE (nome, id_pais, id_estado) VALUES ("Belo Horizonte", 1, 3);
+
+SELECT C.nome, E.nome, P.nome 
+FROM CIDADE C, ESTADO E, PAIS P 
+WHERE C.id_estado = E.id and P.id = E.id_pais;
