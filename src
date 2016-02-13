@@ -20,7 +20,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 		});
 }]);
 app.controller('EnderecosEntregaController', ['$scope', function($scope){
-	console.log('wesss bbbbbbbb');
+	console.log('oie233 ');
 }]); 
 
 app.controller('EnderecosEntregaController', ['$scope', function($scope){

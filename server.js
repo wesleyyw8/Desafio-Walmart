@@ -37,7 +37,7 @@ var server = app.listen(3000,function(){
 var router = express.Router();
 var router = express.Router();
 router.get("/teste",function(req,res){
-	connect();
+	/*connect();
 	con.query('SELECT * FROM employees',function(err,rows){
 	  	if(err) throw err;
 
@@ -45,7 +45,7 @@ router.get("/teste",function(req,res){
 	  	console.log(rows);
     	res.json({"Message" : rows});
 	});
-	disconect();
+	disconect();*/
 });
 app.use('/api', router);
 app.get('*', function(req, res) {
