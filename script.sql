@@ -94,6 +94,11 @@ VALUES
 
 INSERT INTO ENDERECO (nome, lugarejo, CEP, id_cidade, id_estado, id_pais, id_cliente) 
 VALUES 
+('casa de praia do Wesley', 'Rua Meril Brandila 158', 11740000, 2, 2, 1, 1 );
+
+
+INSERT INTO ENDERECO (nome, lugarejo, CEP, id_cidade, id_estado, id_pais, id_cliente) 
+VALUES 
 ('casa da Fernanda', 'Rua da felicidade 552', 25827123, 2, 2, 1, 2 );
 
 INSERT INTO ENDERECO (nome, lugarejo, CEP, id_cidade, id_estado, id_pais, id_cliente) 
@@ -131,7 +136,7 @@ PED.id_endereco = END.id and
 CLI.id = END.id_cliente;
 
 
-
+SELECT CLI.nome, END.nome, END.Lugarejo, END.CEP, CID.nome, EST.nome, P.nome FROM ENDERECO END, CIDADE CID, ESTADO EST, PAIS P, CLIENTE CLI where CLI.id='1' AND CLI.id=END.id_cliente AND END.id_cidade = CID.id AND END.id_estado = EST.id AND END.id_pais = P.id;
 
 /*CREATE TABLE TESTEFOTO (
     id INT NOT NULL AUTO_INCREMENT,

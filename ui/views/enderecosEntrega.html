@@ -3,24 +3,24 @@
  	<table class="table table-hover content">
 	       <thead>
 	           <tr>
-	               <th>Nome</th>
+	               <th>Cliente Nome</th>
+	               <th>Endereco Nome</th>
 	               <th>Lugarejo</th>
 	               <th>CEP</th>
 	               <th>Cidade</th>
 	               <th>Estado</th>
 	               <th>País</th>
-	               <th>Cliente</th>
 	           </tr>
 	       </thead>
 	       <tbody>
 	           <tr ng-repeat="endereco in enderecos">
-	                <td>{{endereco.nome}}</td>
+	                <td>{{endereco.clienteNome}}</td>
+	                <td>{{endereco.enderecoNome}}</td>
 	                <td>{{endereco.lugarejo}}</td>
 	                <td>{{endereco.CEP}}</td>
-	                <td>{{endereco.id_cidade}}</td>
-	                <td>{{endereco.id_estado}}</td>
-	                <td>{{endereco.id_pais}}</td>
-	                <td>{{endereco.id_cliente}}</td>
+	                <td>{{endereco.cidadeNome}}</td>
+	                <td>{{endereco.estadoNome}}</td>
+	                <td>{{endereco.paisNome}}</td>
 	           </tr>
 	       </tbody>
      	</table>

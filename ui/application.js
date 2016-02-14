@@ -26,7 +26,7 @@ angular.module('desafioWalmartApp').factory('Config', [function() {
 		userId: 3,
 		base_url: baseUrl,
 		endpoints: {
-	    	getEnderecos: "getEnderecos/"
+	    	getEnderecos: "getEnderecos"
 		}
 	};
 }]);
@@ -34,7 +34,7 @@ app.controller('EnderecosEntregaController', ['$scope','$http', 'Config','$route
 	populateTable();
 	function populateTable(){
 		$http.get(Config.base_url + Config.endpoints.getEnderecos+'?userid='+routeParams.id+'').then(function(resp) {
-			$scope.enderecos = resp.data.data;
+			$scope.enderecos = resp.data.enderecos;
 		});
 	}
 }]); 

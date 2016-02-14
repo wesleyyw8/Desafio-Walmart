@@ -32,16 +32,18 @@ var router = express.Router();
 var router = express.Router();
 
 router.get("/getEnderecos",function(req,res){
-
 	getConnection(function(error, con){
 		if(error) throw error;
 		var userId = req.param('userid');
-		con.query('SELECT * FROM ENDERECO where id_cliente='+userId+'',function(err,rows){
+		var query = "SELECT CLI.nome as clienteNome, END.nome as enderecoNome, END.lugarejo, END.CEP, CID.nome as cidadeNome, EST.nome as estadoNome, P.nome as paisNome "+
+		"FROM CIDADE CID, ENDERECO END, ESTADO EST, PAIS P, CLIENTE CLI "+
+		"WHERE CLI.id="+userId+" AND CLI.id=END.id_cliente AND END.id_cidade = CID.id AND END.id_estado = EST.id AND END.id_pais = P.id";
+		con.query(query,function(err,rows){
 		  	if(err) throw err;
 
-		  	/*console.log('Data received from Db:\n');
-		  	console.log(rows);*/
-	    	res.json({"data" : rows});
+		  	console.log('Data received from Db:\n');
+		  	console.log(rows);
+	    	res.json({"enderecos" : rows});
 		});
 	});
 });
