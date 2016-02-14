@@ -129,3 +129,17 @@ PED.id_cliente = CLI.id and
 PED.id_produto = PROD.id and
 PED.id_endereco = END.id and
 CLI.id = END.id_cliente;
+
+
+
+
+/*CREATE TABLE TESTEFOTO (
+    id INT NOT NULL AUTO_INCREMENT,
+    img LONGBLOB NOT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO MY_TABLE(id, blob_col) VALUES(1, LOAD_FILE('C:/Users/weeeeeeeeeee/Downloads/ban_brasil.jpg')
+INSERT INTO TESTEFOTO (img) 
+VALUES 
+(LOAD_FILE('C://Users//weeeeeeeeeee//Downloads//ban_brasil.jpg'));*/

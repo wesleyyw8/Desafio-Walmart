@@ -1,0 +1,9 @@
+.enderecosDeEntrega {
+  width: 500px;
+}
+.enderecosDeEntrega a {
+  color: red;
+}
+.enderecosDeEntrega .teste {
+  background-color: black;
+}
