@@ -8,13 +8,20 @@ module.exports = function(grunt){
 			}
 		},
 	    less: {
-	      'ui/style.css': ['ui/css/*.less']
+	      	'ui/style.css': ['ui/css/*.less']
 	    },
 		watch: {
 			scripts: {
 		        files: 'ui/controllers/*.js',
-		        tasks: ['concat:js','less'],
+		        tasks: ['concat'],
 			},
+			less: {
+	            files: ['ui/css/*.less'],
+	            tasks: ["less"],
+	            options: {
+	                livereload: true
+	            }
+	        },
 			livereload: {
 		        options: {
 		          livereload: true,
@@ -28,7 +35,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-less');
 	//grunt.registerTask('default', ['concat:js','watch']);
 	//grunt.registerTask('default', ['concat:js','watch']);
-	grunt.registerTask('default', ['concat','less','watch']);
+	grunt.registerTask('default', ['concat:js', 'less','watch']);
 
 	//grunt.registerTask('default', ['concat']);
 };
