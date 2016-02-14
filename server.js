@@ -32,13 +32,15 @@ var router = express.Router();
 var router = express.Router();
 
 router.get("/getEnderecos",function(req,res){
+
 	getConnection(function(error, con){
 		if(error) throw error;
-		con.query('SELECT * FROM ENDERECO where id_cliente=1',function(err,rows){
+		var userId = req.param('userid');
+		con.query('SELECT * FROM ENDERECO where id_cliente='+userId+'',function(err,rows){
 		  	if(err) throw err;
 
-		  	console.log('Data received from Db:\n');
-		  	console.log(rows);
+		  	/*console.log('Data received from Db:\n');
+		  	console.log(rows);*/
 	    	res.json({"data" : rows});
 		});
 	});

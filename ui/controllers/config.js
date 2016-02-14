@@ -26,7 +26,7 @@ angular.module('desafioWalmartApp').factory('Config', [function() {
 		userId: 3,
 		base_url: baseUrl,
 		endpoints: {
-	    	getEnderecos: "getEnderecos"
+	    	getEnderecos: "getEnderecos/"
 		}
 	};
 }]);
