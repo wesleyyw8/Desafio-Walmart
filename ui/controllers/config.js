@@ -7,7 +7,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 			templateUrl: '../views/pedidos.html',
 			controller: 'PedidosController'
 		}).
-		when('/enderecosEntrega', {
+		when('/enderecosEntrega/:id', {
 			templateUrl: '../views/enderecosEntrega.html',
 			controller: 'EnderecosEntregaController'
 		}).
@@ -18,4 +18,15 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 		otherwise({
 			redirectTo: 'perfilUsuario'
 		});
+}]);
+
+angular.module('desafioWalmartApp').factory('Config', [function() {
+	var baseUrl = "api/";
+	return {
+		userId: 3,
+		base_url: baseUrl,
+		endpoints: {
+	    	getEnderecos: "getEnderecos"
+		}
+	};
 }]);

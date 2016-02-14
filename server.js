@@ -9,7 +9,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "1234",
-  database: "sitepoint"
+  database: "WALMARTDESAFIO"
 });
 
 function connect(){
@@ -47,6 +47,19 @@ router.get("/teste",function(req,res){
 	});
 	disconect();*/
 });
+
+router.get("/getEnderecos",function(req,res){
+	connect();
+	con.query('SELECT * FROM ENDERECO where id_cliente=1',function(err,rows){
+	  	if(err) throw err;
+
+	  	console.log('Data received from Db:\n');
+	  	console.log(rows);
+    	res.json({"data" : rows});
+	});
+	disconect();
+});
+
 app.use('/api', router);
 app.get('*', function(req, res) {
     res.sendfile('./ui/views/index.html'); // load the single view file (angular will handle the page changes on the front-end)

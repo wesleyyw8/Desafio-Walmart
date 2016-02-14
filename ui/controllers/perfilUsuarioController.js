@@ -1,3 +1,2 @@
-app.controller('EnderecosEntregaController', ['$scope', function($scope){
-	console.log('heehehehe')
+app.controller('PerfilUsuarioController', ['$scope', function($scope){
 }]); 

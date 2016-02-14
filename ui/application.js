@@ -7,7 +7,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 			templateUrl: '../views/pedidos.html',
 			controller: 'PedidosController'
 		}).
-		when('/enderecosEntrega', {
+		when('/enderecosEntrega/:id', {
 			templateUrl: '../views/enderecosEntrega.html',
 			controller: 'EnderecosEntregaController'
 		}).
@@ -19,13 +19,27 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 			redirectTo: 'perfilUsuario'
 		});
 }]);
-app.controller('EnderecosEntregaController', ['$scope', function($scope){
-	
+
+angular.module('desafioWalmartApp').factory('Config', [function() {
+	var baseUrl = "api/";
+	return {
+		userId: 3,
+		base_url: baseUrl,
+		endpoints: {
+	    	getEnderecos: "getEnderecos"
+		}
+	};
+}]);
+app.controller('EnderecosEntregaController', ['$scope','$http', 'Config', function($scope,$http, Config){
+	//$http.get(Config.base_url + Config.endpoints.getEnderecos + "'" + Config.userId + "'").then(function(data) {
+	$http.get(Config.base_url + Config.endpoints.getEnderecos).then(function(resp) {
+		console.log(resp.data.data);
+		$scope.enderecos = resp.data.data;
+	});
 }]); 
 
-app.controller('EnderecosEntregaController', ['$scope', function($scope){
+app.controller('PedidosController', ['$scope', function($scope){
 }]); 
 
-app.controller('EnderecosEntregaController', ['$scope', function($scope){
-	console.log('heehehehe')
+app.controller('PerfilUsuarioController', ['$scope', function($scope){
 }]); 

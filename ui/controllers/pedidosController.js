@@ -1,2 +1,2 @@
-app.controller('EnderecosEntregaController', ['$scope', function($scope){
+app.controller('PedidosController', ['$scope', function($scope){
 }]); 
