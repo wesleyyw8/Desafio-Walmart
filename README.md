@@ -3,7 +3,6 @@
 2 - Go to https://git-scm.com/downloads and download git 2.7.1 and install it.
 3 - git clone https://github.com/wesleyyw8/Desafio-Walmart.git
 4 - npm install package.json
-caso der erro, npm install express -save-dev
 5 - bower install -g bower
 5.1 - cd ui
 5.2 - bower install
@@ -17,4 +16,10 @@ Im using angularJS because it is a powerfull framework and I have a lot of exper
 Im using less for styling because the hierarchy of elements and Koala to transform it in css.
 
 
+Testing the UI
+npm install -g protractor
+webdriver-manager update
+webdriver-manager start
+protractor conf.js
 
+There's no much to test so it will click all of the links of the navbar to check if the title of the page macthes with the expected name.
