@@ -1,29 +1,36 @@
 <div class="pedidos">
 	<div class="title">Pedidos</div>
  	<table class="table table-hover content">
-	       <thead>
-	           <tr>
-	               <th>ID do Pedido</th>
-	               <th>ID do Cliente</th>
-	               <th>Nome do produto</th>
-	               <th>ID do Produto</th>
-	               <th>ID do Endereco</th>
-	               <th>Data do Pedido</th>
-	               <th>Quantidade</th>
-	               <th>Total</th>
-	           </tr>
-	       </thead>
-	       <tbody>
-	           <tr ng-repeat="pedido in pedidos">
-	                <td>{{pedido.pedidoId}}</td>
-	                <td>{{pedido.clienteId}}</td>
-	                <td>{{pedido.produtoNome}}</td>
-	                <td>{{pedido.produtoId}}</td>
-	                <td>{{pedido.enderecoId}}</td>
-	                <td>{{pedido.pedidoData}}</td>
-	                <td>{{pedido.pedidoQuantidade}}</td>
-	                <td>{{pedido.total}}</td>
-	           </tr>
-	       </tbody>
-     	</table>
+ 		<div class="fixed-table-toolbar">
+	 		<div class="pull-right search">
+		        <button class="btn btn-primary">
+		            <i class="glyphicon glyphicon-plus"></i>Adicionar
+		        </button>
+	 		</div>
+ 		</div>
+        <thead>
+           <tr>
+               <th>ID do Pedido</th>
+               <th>ID do Cliente</th>
+               <th>Nome do produto</th>
+               <th>ID do Produto</th>
+               <th>ID do Endereco</th>
+               <th>Data do Pedido</th>
+               <th>Quantidade</th>
+               <th>Total</th>
+           </tr>
+        </thead>
+	    <tbody>
+	        <tr ng-repeat="pedido in pedidos">
+                <td>{{pedido.pedidoId}}</td>
+                <td>{{pedido.clienteId}}</td>
+                <td>{{pedido.produtoNome}}</td>
+                <td>{{pedido.produtoId}}</td>
+                <td>{{pedido.enderecoId}}</td>
+                <td>{{pedido.pedidoData}}</td>
+                <td>{{pedido.pedidoQuantidade}}</td>
+                <td>{{pedido.total}}</td>
+	        </tr>
+	    </tbody>
+    </table>
 </div>
