@@ -91,11 +91,13 @@ router.get("/getPedidos",function(req,res){
     getConnection(function(error, con){
         if(error) throw error;
         var userId = req.param('userid');
-        var query = " select PED.id as pedidoId, PED.id_cliente as clienteId, PRO.nome as produtoNome , PED.id_produto as produtoId, PED.id_endereco as enderecoId, PED.quantidade as pedidoQuantidade, PED.quantidade * PRO.preco AS total, PED.data as pedidoData"+
-                     " from PEDIDO PED, PRODUTO PRO "+
+        var query = " select PED.id as pedidoId, END.nome as enderecoNome, END.lugarejo as enderecoLugarejo, CLI.nome as clienteNome, PRO.imagem as produtoImagem, PED.id_cliente as clienteId, PRO.nome as produtoNome , PED.id_produto as produtoId, PED.id_endereco as enderecoId, PED.quantidade as pedidoQuantidade, PED.quantidade * PRO.preco AS total, PED.data as pedidoData"+
+                     " from PEDIDO PED, PRODUTO PRO , CLIENTE CLI, ENDERECO END "+
                      " where "+
                      " PED.id_cliente = '"+userId+"' AND "+
-                     " PED.id_produto = PRO.id";
+                     " PED.id_produto = PRO.id AND"+
+                     " CLI.id = PED.id_cliente AND"+
+                     " PED.id_endereco = END.id";
         con.query(query,function(err,rows){
             if(err) throw err;
 

@@ -1,20 +1,20 @@
 <div class="pedidos">
-	<div class="title">Pedidos</div>
+	<div class="title">Pedidos de {{cliente}}</div>
  	<table class="table table-hover content">
  		<div class="fixed-table-toolbar">
-	 		<div class="pull-right search">
-		        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddPedidos">
+	 		<div class="pull-right">
+		        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddPedidos" disabled>
 		            <i class="glyphicon glyphicon-plus"></i>Adicionar
 		        </button>
 	 		</div>
  		</div>
         <thead>
            <tr>
-               <th>ID do Pedido</th>
                <th>Nome do produto</th>
-               <th>ID do Produto</th>
-               <th>ID do Cliente</th>
-               <th>ID do Endereco</th>
+               <th>Foto do Produto</th>
+               <th>nome do Cliente</th>
+               <th>Endereco</th>
+               <th>Lugarejo</th>
                <th>Data do Pedido</th>
                <th>Quantidade</th>
                <th>Total</th>
@@ -22,11 +22,13 @@
         </thead>
 	    <tbody>
 	        <tr ng-repeat="pedido in pedidos">
-                <td>{{pedido.pedidoId}}</td>
-                <td>{{pedido.clienteId}}</td>
-                <td>{{pedido.produtoId}}</td>
                 <td>{{pedido.produtoNome}}</td>
-                <td>{{pedido.enderecoId}}</td>
+                <td>
+                  <img src="../img/{{pedido.produtoImagem}}" height="42" width="42">
+                </td>
+                <td>{{pedido.clienteNome}}</td>
+                <td>{{pedido.enderecoNome}}</td>
+                <td>{{pedido.enderecoLugarejo}}</td>
                 <td>{{pedido.pedidoData}}</td>
                 <td>{{pedido.pedidoQuantidade}}</td>
                 <td>{{pedido.total}}</td>
@@ -72,7 +74,7 @@
             	</div>
             </div>
             <div class="modal-footer">
-            	<button type="button" class="btn btn-default">Salvar</button>
+            	<button type="button" class="btn btn-default" disabled>Salvar</button>
             	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
             </div>
           </div>

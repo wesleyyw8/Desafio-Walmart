@@ -54,6 +54,7 @@ CREATE TABLE PRODUTO(
 	id INT NOT NULL AUTO_INCREMENT,
 	nome VARCHAR(255) NOT NULL,
 	preco DOUBLE,
+	imagem VARCHAR(255),
 	PRIMARY KEY (id)
 );
 
@@ -104,9 +105,9 @@ INSERT INTO ENDERECO (nome, lugarejo, CEP, id_cidade, id_estado, id_pais, id_cli
 VALUES 
 ('casa da Joaquina', 'Avenida Dos Generais 20', 83712321, 3, 3, 1, 3 );
 
-INSERT INTO PRODUTO (nome, preco ) VALUES ('televisao', 400.00);
-INSERT INTO PRODUTO (nome, preco) VALUES ('computador', 2000.00);
-INSERT INTO PRODUTO (nome, preco ) VALUES ('cadeira', 90.00);
+INSERT INTO PRODUTO (nome, preco, imagem ) VALUES ('televisao', 400.00, 'televisao.jpg');
+INSERT INTO PRODUTO (nome, preco, imagem) VALUES ('computador', 2000.00, 'computador.jpg');
+INSERT INTO PRODUTO (nome, preco, imagem ) VALUES ('cadeira', 90.00, 'televisao.jpg');
 
 SELECT C.nome, E.nome, P.nome 
 FROM CIDADE C, ESTADO E, PAIS P 
@@ -121,14 +122,14 @@ INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUE
 );
 
 INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUES (
-	1, 1, 1, 1, '2008-7-04'
+	1, 1, 2, 1, '2008-7-04'
 );
 
 INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUES (
-	2, 1, 2, 1, '2012-2-25'
+	2, 1, 3, 1, '2012-2-25'
 );
 INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUES (
-	3, 3, 3, 4, '2015-12-11'
+	3, 3, 4, 4, '2015-12-11'
 );
 
 /*SELECT PED.quantidade, PED.data, CLI.nome, PROD.nome, END.lugarejo
@@ -154,11 +155,18 @@ CLI.id = END.id_cliente;
 
 /*CREATE TABLE TESTEFOTO (
     id INT NOT NULL AUTO_INCREMENT,
-    img LONGBLOB,
+    img LONGBLOB NOT NULL,
   PRIMARY KEY (id)
 );
-
-INSERT INTO MY_TABLE(id, blob_col) VALUES(1, LOAD_FILE('C:/Users/weeeeeeeeeee/Downloads/ban_brasil.jpg')
+*/
+/*
 INSERT INTO TESTEFOTO (img) 
 VALUES 
-(LOAD_FILE('C://Users//weeeeeeeeeee//Downloads//ban_brasil.jpg'));*/
+(LOAD_FILE('C:/Users/Wesley Rebelo/haha.txt'));
+
+SELECT LOAD_FILE('C:/Users/Wesley Rebelo/haha.txt');
+
+SELECT LOAD_FILE('C:/teste/haha.txt');
+*/
+
+/*GRANT FILE ON *.* TO 'root'@'localhost' ;*/
