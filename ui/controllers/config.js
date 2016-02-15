@@ -3,7 +3,7 @@ var app = angular.module('desafioWalmartApp',['ngRoute']);
 app.config(['$routeProvider', '$locationProvider', function($routeProvider,$locationProvider){
 	
 	$routeProvider.
-		when('/pedidos', {
+		when('/pedidos/:id', {
 			templateUrl: '../views/pedidos.html',
 			controller: 'PedidosController'
 		}).
@@ -11,12 +11,12 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider,$loca
 			templateUrl: '../views/enderecosEntrega.html',
 			controller: 'EnderecosEntregaController'
 		}).
-		when('/perfilUsuario', {
+		when('/perfilUsuario/:id', {
 			templateUrl: '../views/perfilUsuario.html',
 			controller: 'PerfilUsuarioController'
 		}).
 		otherwise({
-			redirectTo: 'perfilUsuario'
+			redirectTo: '/perfilUsuario/1'
 		});
 }]);
 
@@ -26,7 +26,10 @@ angular.module('desafioWalmartApp').factory('Config', [function() {
 		userId: 3,
 		base_url: baseUrl,
 		endpoints: {
-	    	getEnderecos: "getEnderecos"
+	    	getEnderecos: "getEnderecos",
+	    	getClientes: "getClientes",
+	    	updateClientes: "updateClientes",
+	    	getPedidos: "getPedidos"
 		}
 	};
 }]);

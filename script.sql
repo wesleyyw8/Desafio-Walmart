@@ -54,7 +54,6 @@ CREATE TABLE PRODUTO(
 	id INT NOT NULL AUTO_INCREMENT,
 	nome VARCHAR(255) NOT NULL,
 	preco DOUBLE,
-	quantidade INT,
 	PRIMARY KEY (id)
 );
 
@@ -63,7 +62,7 @@ CREATE TABLE PEDIDO(
 	id_cliente INT,
 	id_produto INT,
 	id_endereco INT,
-	total DOUBLE,
+	quantidade INT,
 	data DATE,
 	PRIMARY KEY (id),
 	FOREIGN KEY (id_cliente) REFERENCES CLIENTE (id),
@@ -117,30 +116,45 @@ SELECT C.nome, E.nome, P.nome , CLI.nome, END.lugarejo
 FROM CIDADE C, ESTADO E, PAIS P, CLIENTE CLI , ENDERECO END
 WHERE C.id_estado = E.id and P.id = E.id_pais and END.id_cidade = C.id and CLI.id = END.id_cliente;
 
-INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, total, data) VALUES (
-	1, 2, 1, 2000.00, '2008-7-04'
-);
-INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, total, data) VALUES (
-	2, 1, 2, 400.00, '2012-2-25'
-);
-INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, total, data) VALUES (
-	3, 3, 3, 90.00, '2015-12-11'
+INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUES (
+	1, 2, 1, 2, '2008-7-04'
 );
 
-SELECT PED.total, PED.data, CLI.nome, PROD.nome, END.lugarejo
+INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUES (
+	1, 1, 1, 1, '2008-7-04'
+);
+
+INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUES (
+	2, 1, 2, 1, '2012-2-25'
+);
+INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUES (
+	3, 3, 3, 4, '2015-12-11'
+);
+
+/*SELECT PED.quantidade, PED.data, CLI.nome, PROD.nome, END.lugarejo
 FROM PEDIDO PED, CLIENTE CLI, PRODUTO PROD, ENDERECO END
 WHERE
 PED.id_cliente = CLI.id and 
 PED.id_produto = PROD.id and
 PED.id_endereco = END.id and
 CLI.id = END.id_cliente;
+*/
+
+/*SELECT CLI.nome, END.nome, END.Lugarejo, END.CEP, CID.nome, EST.nome, P.nome FROM ENDERECO END, CIDADE CID, ESTADO EST, PAIS P, CLIENTE CLI where CLI.id='1' AND CLI.id=END.id_cliente AND END.id_cidade = CID.id AND END.id_estado = EST.id AND END.id_pais = P.id;*/
 
 
-SELECT CLI.nome, END.nome, END.Lugarejo, END.CEP, CID.nome, EST.nome, P.nome FROM ENDERECO END, CIDADE CID, ESTADO EST, PAIS P, CLIENTE CLI where CLI.id='1' AND CLI.id=END.id_cliente AND END.id_cidade = CID.id AND END.id_estado = EST.id AND END.id_pais = P.id;
+
+
+ select PED.id, PED.id_cliente, PRO.nome, PED.id_produto, PRO.nome, PED.id_endereco, PED.quantidade, PED.quantidade * PRO.preco AS total, PED.data
+ from PEDIDO PED, PRODUTO PRO 
+ where 
+ PED.id_cliente = 1 AND
+ PED.id_produto = PRO.id;
+
 
 /*CREATE TABLE TESTEFOTO (
     id INT NOT NULL AUTO_INCREMENT,
-    img LONGBLOB NOT NULL,
+    img LONGBLOB,
   PRIMARY KEY (id)
 );
 

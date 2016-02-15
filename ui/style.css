@@ -23,3 +23,37 @@
 .enderecosDeEntrega .content {
   margin-top: 20px;
 }
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+.navbar {
+  text-align: center;
+}
+
+.pedidos {
+  width: 900px;
+  margin: auto;
+}
+.pedidos .title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+.pedidos .content {
+  margin-top: 20px;
+}
+
+.perfilDoUsuario {
+  width: 900px;
+  margin: auto;
+}
+.perfilDoUsuario .title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+.perfilDoUsuario .content {
+  margin-top: 20px;
+}

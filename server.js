@@ -2,6 +2,8 @@ var express = require('express');
 var mysql = require("mysql");
 var bodyParser  = require("body-parser");
 var app = express();
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use(express.static(__dirname + '/ui')); 
 
@@ -29,7 +31,6 @@ var server = app.listen(3000,function(){
     console.log("We have started our server on port 3000!");
 });
 var router = express.Router();
-var router = express.Router();
 
 router.get("/getEnderecos",function(req,res){
 	getConnection(function(error, con){
@@ -46,6 +47,63 @@ router.get("/getEnderecos",function(req,res){
 	    	res.json({"enderecos" : rows});
 		});
 	});
+});
+
+router.get("/getClientes",function(req,res){
+    getConnection(function(error, con){
+        if(error) throw error;
+        var userId = req.param('userid');
+        var query = "SELECT * "+
+                    "FROM CLIENTE CLI "+
+                    "WHERE CLI.id='"+userId+"'";
+        con.query(query,function(err,rows){
+            if(err) throw err;
+
+            console.log('Data received from Db:\n');
+            console.log(rows);
+            res.json({"cliente" : rows});
+        });
+    });
+});
+
+app.post('/api/updateClientes', function(req, res) {
+    getConnection(function(error, con){
+        if(error) throw error;
+
+        var user_id = req.body.userid;
+        var nome = req.body.nome;
+        var sexo = req.body.sexo;
+        var idade = req.body.idade;
+        var query = "UPDATE CLIENTE SET nome='"+nome+"', idade="+idade+", sexo='"+sexo+"' WHERE cliente.id = "+user_id+";"
+
+        con.query(query,function(err,rows){
+            if(err) throw err;
+
+            res.json({
+                msg: "usuario alterado!",
+                query: query
+            });
+        });
+    });
+});
+
+router.get("/getPedidos",function(req,res){
+    getConnection(function(error, con){
+        if(error) throw error;
+        var userId = req.param('userid');
+        var query = " select PED.id as pedidoId, PED.id_cliente as clienteId, PRO.nome as produtoNome , PED.id_produto as produtoId, PED.id_endereco as enderecoId, PED.quantidade as pedidoQuantidade, PED.quantidade * PRO.preco AS total, PED.data as pedidoData"+
+                     " from PEDIDO PED, PRODUTO PRO "+
+                     " where "+
+                     " PED.id_cliente = '"+userId+"' AND "+
+                     " PED.id_produto = PRO.id";
+        con.query(query,function(err,rows){
+            if(err) throw err;
+
+            console.log('Data received from Db:\n');
+            console.log(rows);
+            res.json({"pedidos" : rows});
+        });
+    });
 });
 
 app.use('/api', router);

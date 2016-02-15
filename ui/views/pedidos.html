@@ -1,1 +1,29 @@
-Pedidos
+<div class="pedidos">
+	<div class="title">Pedidos</div>
+ 	<table class="table table-hover content">
+	       <thead>
+	           <tr>
+	               <th>pedidoId</th>
+	               <th>clienteId</th>
+	               <th>produtoNome</th>
+	               <th>produtoId</th>
+	               <th>pedidoId</th>
+	               <th>PedidoData</th>
+	               <th>pedidoQuantidade</th>
+	               <th>total</th>
+	           </tr>
+	       </thead>
+	       <tbody>
+	           <tr ng-repeat="pedido in pedidos">
+	                <td>{{pedido.pedidoId}}</td>
+	                <td>{{pedido.clienteId}}</td>
+	                <td>{{pedido.produtoNome}}</td>
+	                <td>{{pedido.produtoId}}</td>
+	                <td>{{pedido.pedidoId}}</td>
+	                <td>{{pedido.pedidoData}}</td>
+	                <td>{{pedido.pedidoQuantidade}}</td>
+	                <td>{{pedido.total}}</td>
+	           </tr>
+	       </tbody>
+     	</table>
+</div>
