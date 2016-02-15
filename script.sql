@@ -84,9 +84,9 @@ INSERT INTO CIDADE (nome, id_pais, id_estado) VALUES ("Santos", 1, 1);
 INSERT INTO CIDADE (nome, id_pais, id_estado) VALUES ("Petropolis", 1, 2);
 INSERT INTO CIDADE (nome, id_pais, id_estado) VALUES ("Belo Horizonte", 1, 3);
 
-INSERT INTO CLIENTE (nome, idade, sexo) VALUES ("wesley", 27, "m");
-INSERT INTO CLIENTE (nome, idade, sexo) VALUES ("fernanda", 22, "f");
-INSERT INTO CLIENTE (nome, idade, sexo) VALUES ("joaquina", 34, "f");
+INSERT INTO CLIENTE (nome, idade, sexo) VALUES ("Wesley", 27, "m");
+INSERT INTO CLIENTE (nome, idade, sexo) VALUES ("Fernanda", 22, "f");
+INSERT INTO CLIENTE (nome, idade, sexo) VALUES ("Joaquina", 34, "f");
 
 INSERT INTO ENDERECO (nome, lugarejo, CEP, id_cidade, id_estado, id_pais, id_cliente) 
 VALUES 
