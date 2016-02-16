@@ -107,15 +107,15 @@ VALUES
 
 INSERT INTO PRODUTO (nome, preco, imagem ) VALUES ('televisao', 400.00, 'televisao.jpg');
 INSERT INTO PRODUTO (nome, preco, imagem) VALUES ('computador', 2000.00, 'computador.jpg');
-INSERT INTO PRODUTO (nome, preco, imagem ) VALUES ('cadeira', 90.00, 'televisao.jpg');
+INSERT INTO PRODUTO (nome, preco, imagem ) VALUES ('cadeira', 90.00, 'cadeira.jpg');
 
-SELECT C.nome, E.nome, P.nome 
+/*SELECT C.nome, E.nome, P.nome 
 FROM CIDADE C, ESTADO E, PAIS P 
 WHERE C.id_estado = E.id and P.id = E.id_pais;
 
 SELECT C.nome, E.nome, P.nome , CLI.nome, END.lugarejo
 FROM CIDADE C, ESTADO E, PAIS P, CLIENTE CLI , ENDERECO END
-WHERE C.id_estado = E.id and P.id = E.id_pais and END.id_cidade = C.id and CLI.id = END.id_cliente;
+WHERE C.id_estado = E.id and P.id = E.id_pais and END.id_cidade = C.id and CLI.id = END.id_cliente;*/
 
 INSERT INTO PEDIDO (id_cliente, id_produto, id_endereco, quantidade, data) VALUES (
 	1, 2, 1, 2, '2008-7-04'
@@ -145,13 +145,13 @@ CLI.id = END.id_cliente;
 
 
 
-
+/*
  select PED.id, PED.id_cliente, PRO.nome, PED.id_produto, PRO.nome, PED.id_endereco, PED.quantidade, PED.quantidade * PRO.preco AS total, PED.data
  from PEDIDO PED, PRODUTO PRO 
  where 
  PED.id_cliente = 1 AND
  PED.id_produto = PRO.id;
-
+*/
 
 /*CREATE TABLE TESTEFOTO (
     id INT NOT NULL AUTO_INCREMENT,
