@@ -6,15 +6,15 @@ describe('Testes ! ', function() {
     navBarClick(0);
     testePerfilUsuarioPage();
     navBarClick(2);
-    testeEnderecosENtregaPage();
+    testeEnderecosEntregaPage();
 
+    //count the number of rows and check the title page.
     function testePedidosPage(){
         var pageName =  element(by.css('.pageName')).getText();
         var todoList = element.all(by.repeater('pedido in pedidos'));
         expect(pageName).toEqual('Pedidos');
         expect(todoList.count()).toEqual(2);
     }
-
 
     //use a tempopary name age and sex. Afterwards turn it back.
     function testePerfilUsuarioPage(){
@@ -38,18 +38,32 @@ describe('Testes ! ', function() {
         }
         function checkValuesForm(nome, idade, sexo){
             browser.refresh();
-            browser.driver.sleep(1000, function(){
+            var inputName =element(by.model('cliente.nome')).getAttribute('value');
+            var inputIdade = element(by.model('cliente.idade')).getAttribute('value');
+            var inputSexo = element(by.model('cliente.sexo')).getAttribute('value');
+            inputName.then(function(result) {
+                expect(nome).toEqual(result);
+            });
+            inputIdade.then(function(result) {
+                expect(idade).toEqual(result);
+            });
+            inputSexo.then(function(result) {
+                expect(sexo).toEqual(result);
+            });
+            
+            /*browser.driver.sleep(1000, function(){
                 var inputName = element(by.model('cliente.nome')).getAttribute('value');
                 var inputIdade = element(by.model('cliente.idade')).getAttribute('value');
                 var inputSexo = element(by.model('cliente.sexo')).getAttribute('value');
                 expect(nome).toEqual(inputName);
                 expect(idade).toEqual(inputIdade);
                 expect(sexo).toEqual(inputSexo);
-            });
+            });*/
         }
     }
 
-    function testeEnderecosENtregaPage(){
+    //count the number of rows and check the title page.
+    function testeEnderecosEntregaPage(){
         var pageName =  element(by.css('.title')).getText();
         expect(pageName).toEqual("Endereços de Entrega");
 

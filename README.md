@@ -20,6 +20,6 @@ Testing the UI
 npm install -g protractor
 webdriver-manager update
 webdriver-manager start
-protractor conf.js
+protractor protactorScript.js
 
 There's no much to test so it will click all of the links of the navbar to check if the title of the page macthes with the expected name.
