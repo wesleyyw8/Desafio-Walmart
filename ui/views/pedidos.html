@@ -2,7 +2,7 @@
 	<div class="title"><span class="pageName">Pedidos</span> de {{cliente}}</div>
  	<table class="table table-hover content">
  		<div class="fixed-table-toolbar">
-	 		<div class="pull-right">
+	 		<div class="pull-right btnContainer">
 		        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddPedidos" disabled>
 		            <i class="glyphicon glyphicon-plus"></i>Adicionar
 		        </button>
@@ -12,7 +12,6 @@
            <tr>
                <th>Nome do produto</th>
                <th>Foto do Produto</th>
-               <th>nome do Cliente</th>
                <th>Endereco</th>
                <th>Lugarejo</th>
                <th>Data do Pedido</th>
@@ -24,12 +23,11 @@
 	        <tr ng-repeat="pedido in pedidos">
                 <td>{{pedido.produtoNome}}</td>
                 <td>
-                  <img src="../img/{{pedido.produtoImagem}}" height="42" width="42">
+                  <img src="../img/{{pedido.produtoImagem}}" class="img">
                 </td>
-                <td>{{pedido.clienteNome}}</td>
                 <td>{{pedido.enderecoNome}}</td>
                 <td>{{pedido.enderecoLugarejo}}</td>
-                <td>{{pedido.pedidoData}}</td>
+                <td>{{pedido.pedidoData  | date:"MM/dd/yyyy" }}</td>
                 <td>{{pedido.pedidoQuantidade}}</td>
                 <td>{{pedido.total}}</td>
 	        </tr>

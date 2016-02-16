@@ -1,20 +1,3 @@
-.adicionarEnderecosDeEntrega {
-  width: 900px;
-  margin: auto;
-}
-.adicionarEnderecosDeEntrega .title {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-}
-.adicionarEnderecosDeEntrega .content {
-  margin-top: 20px;
-}
-
-.enderecosDeEntrega {
-  width: 900px;
-  margin: auto;
-}
 .enderecosDeEntrega .title {
   text-align: center;
   font-size: 24px;
@@ -24,17 +7,28 @@
   margin-top: 20px;
 }
 
+.navbar {
+  text-align: center;
+}
 .navbar .navbar-nav {
   display: inline-block;
   float: none;
 }
-.navbar {
-  text-align: center;
+.enderecosDeEntrega,
+.pedidos,
+.perfilDoUsuario {
+  width: 900px;
+  margin: auto;
+  background-color: aliceblue;
+  border-radius: 25px;
+  border: 2px solid #e7e7e7;
 }
 
 .pedidos {
   width: 1010px;
-  margin: auto;
+}
+.pedidos .btnContainer {
+  margin-right: 5px;
 }
 .pedidos .title {
   text-align: center;
@@ -44,11 +38,11 @@
 .pedidos .content {
   margin-top: 50px;
 }
-
-.perfilDoUsuario {
-  width: 900px;
-  margin: auto;
+.pedidos .content .img {
+  width: 42px;
+  height: 42px;
 }
+
 .perfilDoUsuario .title {
   text-align: center;
   font-size: 24px;
